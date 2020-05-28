@@ -15,11 +15,6 @@ class _InputPageState extends State<InputPage> {
       body: Center(
         child: Text('Body Text'),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFea1556),
-        foregroundColor: Colors.white,
-        child: Icon(Icons.add),
-      ),
     );
   }
 }
