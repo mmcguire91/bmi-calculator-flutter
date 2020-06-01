@@ -20,34 +20,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  //defining logic for color change on tap
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
-
-  void updateColor(Gender selectedGender) {
-    //if user selects the male tile
-    if (selectedGender == Gender.male) {
-      //if the user taps on the male card and it is inactive color, change to active color
-      if (maleCardColor == inactiveCardColor) {
-        maleCardColor = activeCardColor;
-        femaleCardColor = inactiveCardColor;
-      } else {
-        //retain inactive color
-        maleCardColor = inactiveCardColor;
-      }
-    }
-    //if user selects the female tile
-    if (selectedGender == Gender.female) {
-      //if the user taps on the female card and it is inactive color, change to active color
-      if (femaleCardColor == inactiveCardColor) {
-        femaleCardColor = activeCardColor;
-        maleCardColor = inactiveCardColor;
-      } else {
-        //retain inactive color
-        femaleCardColor = inactiveCardColor;
-      }
-    }
-  }
+  Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -67,12 +40,15 @@ class _InputPageState extends State<InputPage> {
                     onTap: () {
                       //when the tile is tapped
                       setState(() {
-                        //set the color according to the defined logic for male
-                        updateColor(Gender.male);
+                        //set state according to the current color property for male
+                        selectedGender = Gender.male;
                       });
                     },
                     child: ReusableContainer(
-                      cardColor: maleCardColor,
+                      //if the user selected male, card color active, else card color inactive
+                      cardColor: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inactiveCardColor,
                       cardChild: TileUI(
                         cardIcon: maleIcon,
                         iconLabel: maleText,
@@ -85,12 +61,15 @@ class _InputPageState extends State<InputPage> {
                     onTap: () {
                       //when the tile is tapped
                       setState(() {
-                        //set the color according to the defined logic for female
-                        updateColor(Gender.female);
+                        //set state according to the current color property for male
+                        selectedGender = Gender.female;
                       });
                     },
                     child: ReusableContainer(
-                      cardColor: femaleCardColor,
+                      //if the user selected female, card color active, else card color inactive
+                      cardColor: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inactiveCardColor,
                       cardChild: TileUI(
                         cardIcon: femaleIcon,
                         iconLabel: femaleText,
