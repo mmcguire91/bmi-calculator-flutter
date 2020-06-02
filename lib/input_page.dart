@@ -36,44 +36,38 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      //when the tile is tapped
+                  child: ReusableContainer(
+                    //when pressed change the selected properties to those associated with Male
+                    onPressed: () {
                       setState(() {
-                        //set state according to the current color property for male
                         selectedGender = Gender.male;
                       });
                     },
-                    child: ReusableContainer(
-                      //if the user selected male, card color active, else card color inactive
-                      cardColor: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inactiveCardColor,
-                      cardChild: TileUI(
-                        cardIcon: maleIcon,
-                        iconLabel: maleText,
-                      ),
+                    //if the user selected male, card color active, else card color inactive
+                    cardColor: selectedGender == Gender.male
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild: TileUI(
+                      cardIcon: maleIcon,
+                      iconLabel: maleText,
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      //when the tile is tapped
+                  child: ReusableContainer(
+                    //when pressed change the selected properties to those associated with Female
+                    onPressed: () {
                       setState(() {
-                        //set state according to the current color property for male
                         selectedGender = Gender.female;
                       });
                     },
-                    child: ReusableContainer(
-                      //if the user selected female, card color active, else card color inactive
-                      cardColor: selectedGender == Gender.female
-                          ? activeCardColor
-                          : inactiveCardColor,
-                      cardChild: TileUI(
-                        cardIcon: femaleIcon,
-                        iconLabel: femaleText,
-                      ),
+                    //if the user selected female, card color active, else card color inactive
+                    cardColor: selectedGender == Gender.female
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild: TileUI(
+                      cardIcon: femaleIcon,
+                      iconLabel: femaleText,
                     ),
                   ),
                 ),
