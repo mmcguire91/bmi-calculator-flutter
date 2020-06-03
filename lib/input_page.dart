@@ -1,17 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'Reusable_Container.dart';
 import 'Tile_UI.dart';
 import 'Bottom_Bar.dart';
+import 'constants.dart';
 
-const activeCardColor = Color(0xFF1d1f33); //color of active cards
-const inactiveCardColor = Color(0xFF111328); //0xFF
-const maleIcon = FontAwesomeIcons.mars;
-const maleText = 'MALE';
-const femaleIcon = FontAwesomeIcons.venus;
-const femaleText = 'FEMALE';
-
+//instead of having items defined as integers, we are able to define them as strings with enum to simplify our code and avoid confusion
 enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
@@ -21,6 +15,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +26,7 @@ class _InputPageState extends State<InputPage> {
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
             child: Row(
@@ -45,11 +41,11 @@ class _InputPageState extends State<InputPage> {
                     },
                     //if the user selected male, card color active, else card color inactive
                     cardColor: selectedGender == Gender.male
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: TileUI(
-                      cardIcon: maleIcon,
-                      iconLabel: maleText,
+                      cardIcon: kMaleIcon,
+                      iconLabel: kMaleText,
                     ),
                   ),
                 ),
@@ -63,11 +59,11 @@ class _InputPageState extends State<InputPage> {
                     },
                     //if the user selected female, card color active, else card color inactive
                     cardColor: selectedGender == Gender.female
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: TileUI(
-                      cardIcon: femaleIcon,
-                      iconLabel: femaleText,
+                      cardIcon: kFemaleIcon,
+                      iconLabel: kFemaleText,
                     ),
                   ),
                 ),
@@ -79,7 +75,43 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableContainer(
-                    cardColor: activeCardColor,
+                    cardColor: kActiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'HEIGHT',
+                          style: kLabelTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            Text(
+                              height.toString(),
+                              style: kNumberTextStyle,
+                            ),
+                            Text(
+                              'cm',
+                              style: kLabelTextStyle,
+                            )
+                          ],
+                        ),
+                        Slider(
+                          value: height.toDouble(),
+                          min: kMinHeight.toDouble(),
+                          max: kMaxHeight.toDouble(),
+                          activeColor: kBottomBarColor,
+                          onChanged: (double newValue) {
+                            print(newValue);
+                            setState(() {
+                              height = newValue.round();
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -90,12 +122,12 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableContainer(
-                    cardColor: activeCardColor,
+                    cardColor: kActiveCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReusableContainer(
-                    cardColor: activeCardColor,
+                    cardColor: kActiveCardColor,
                   ),
                 ),
               ],

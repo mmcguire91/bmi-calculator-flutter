@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-
-const bottomBarColor = Color(0xFFea1556); //color of bottom bar
-const bottomBarHeight = 60.0; //must include decimal .0
-const barColor = BoxDecoration(
-  color: bottomBarColor,
-);
+import 'constants.dart';
 
 class BottomBar extends StatelessWidget {
   @override
@@ -12,8 +7,8 @@ class BottomBar extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 10),
       width: double.infinity, //width equal to device size
-      height: bottomBarHeight,
-      decoration: barColor,
+      height: kBottomBarHeight,
+      decoration: kBarColor,
     );
   }
 }

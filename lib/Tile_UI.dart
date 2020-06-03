@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-const iconLabelStyle = TextStyle(
-  fontSize: 18.0,
-  color: Color(0xFF8e8e99),
-);
+import 'constants.dart';
 
 class TileUI extends StatelessWidget {
   TileUI({this.cardIcon, this.iconLabel});
@@ -25,7 +21,7 @@ class TileUI extends StatelessWidget {
         ),
         Text(
           iconLabel,
-          style: iconLabelStyle,
+          style: kLabelTextStyle,
         )
       ],
     );
