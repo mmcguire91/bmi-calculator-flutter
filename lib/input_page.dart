@@ -16,6 +16,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 180;
+  int weight = 130;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class _InputPageState extends State<InputPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          //Gender Tiles
           Expanded(
             child: Row(
               children: <Widget>[
@@ -40,6 +42,7 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     //if the user selected male, card color active, else card color inactive
+                    //ternary operator
                     cardColor: selectedGender == Gender.male
                         ? kActiveCardColor
                         : kInactiveCardColor,
@@ -58,6 +61,7 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     //if the user selected female, card color active, else card color inactive
+                    //ternary operator
                     cardColor: selectedGender == Gender.female
                         ? kActiveCardColor
                         : kInactiveCardColor,
@@ -70,6 +74,7 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
+          //Slider
           Expanded(
             child: Row(
               children: <Widget>[
@@ -86,7 +91,8 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic,
+                          textBaseline: TextBaseline
+                              .alphabetic, //required to use baseline property
                           children: <Widget>[
                             Text(
                               height.toString(),
@@ -95,7 +101,7 @@ class _InputPageState extends State<InputPage> {
                             Text(
                               kHeightMeasurement,
                               style: kLabelTextStyle,
-                            )
+                            ),
                           ],
                         ),
                         SliderTheme(
@@ -128,12 +134,51 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
+          //Weight and Age tiles
           Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
                   child: ReusableContainer(
                     cardColor: kActiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          kWeightText,
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            FloatingActionButton(
+                              onPressed: () {},
+                              backgroundColor: Color(0xFF4C4F5E),
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            //TODO: Left off video at 11:56 mark
+                            FloatingActionButton(
+                              onPressed: () {},
+                              backgroundColor: Color(0xFF4C4F5E),
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
