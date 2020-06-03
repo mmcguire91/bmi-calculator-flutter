@@ -80,7 +80,7 @@ class _InputPageState extends State<InputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'HEIGHT',
+                          kHeightText,
                           style: kLabelTextStyle,
                         ),
                         Row(
@@ -93,22 +93,33 @@ class _InputPageState extends State<InputPage> {
                               style: kNumberTextStyle,
                             ),
                             Text(
-                              'cm',
+                              kHeightMeasurement,
                               style: kLabelTextStyle,
                             )
                           ],
                         ),
-                        Slider(
-                          value: height.toDouble(),
-                          min: kMinHeight.toDouble(),
-                          max: kMaxHeight.toDouble(),
-                          activeColor: kBottomBarColor,
-                          onChanged: (double newValue) {
-                            print(newValue);
-                            setState(() {
-                              height = newValue.round();
-                            });
-                          },
+                        SliderTheme(
+                          //allow modifications to only certain aspects of Slider property
+                          data: SliderTheme.of(context).copyWith(
+                            thumbShape:
+                                RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                            overlayShape:
+                                RoundSliderOverlayShape(overlayRadius: 30.0),
+                            thumbColor: kSecondaryCTAColor,
+                            activeTrackColor: kActiveTrackColor,
+                            inactiveTrackColor: kInactiveTrackColor,
+                            overlayColor: kOverlayColor,
+                          ),
+                          child: Slider(
+                            value: height.toDouble(),
+                            min: kMinHeight.toDouble(),
+                            max: kMaxHeight.toDouble(),
+                            onChanged: (double newValue) {
+                              setState(() {
+                                height = newValue.round();
+                              });
+                            },
+                          ),
                         ),
                       ],
                     ),

@@ -2,18 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //Best practice to label all constants with k to signify they are constants
+//Colors
 const kActiveCardColor = Color(0xFF1d1f33); //color of active cards
 const kInactiveCardColor = Color(0xFF111328); //0xFF
-const kMaleIcon = FontAwesomeIcons.mars;
+const kSecondaryCTAColor = Color(0xFFea1556); //color of bottom bar
+const kOverlayColor = Color(0x29ea1556);
+const kActiveTrackColor = Colors.white;
+const kInactiveTrackColor = Color(0x808D8E98);
+//UI Components
 const kMaleText = 'MALE';
-const kFemaleIcon = FontAwesomeIcons.venus;
 const kFemaleText = 'FEMALE';
-const kBottomBarColor = Color(0xFFea1556); //color of bottom bar
+const kHeightText = 'HEIGHT';
+const kHeightMeasurement = 'cm';
+const kMaleIcon = FontAwesomeIcons.mars;
+const kFemaleIcon = FontAwesomeIcons.venus;
+const kBarColor = BoxDecoration(color: kSecondaryCTAColor);
+//Widget Properties
 const kBottomBarHeight = 60.0; //must include decimal .0
-const kBarColor = BoxDecoration(color: kBottomBarColor);
 const kMinHeight = 92;
 const kMaxHeight = 244;
-
+//Text Styles
 const kLabelTextStyle = TextStyle(
   fontSize: 18.0,
   color: Color(0xFF8e8e99),
