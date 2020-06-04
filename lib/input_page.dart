@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'Reusable_Container.dart';
 import 'Tile_UI.dart';
 import 'Bottom_Bar.dart';
 import 'constants.dart';
+import 'Round_Icon_Button.dart';
 
 //instead of having items defined as integers, we are able to define them as strings with enum to simplify our code and avoid confusion
 enum Gender { male, female }
@@ -17,6 +19,7 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 180;
   int weight = 130;
+  int age = 30;
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +107,7 @@ class _InputPageState extends State<InputPage> {
                             ),
                           ],
                         ),
+                        //slider UI
                         SliderTheme(
                           //allow modifications to only certain aspects of Slider property
                           data: SliderTheme.of(context).copyWith(
@@ -116,6 +120,7 @@ class _InputPageState extends State<InputPage> {
                             inactiveTrackColor: kInactiveTrackColor,
                             overlayColor: kOverlayColor,
                           ),
+                          //slider functionality
                           child: Slider(
                             value: height.toDouble(),
                             min: kMinHeight.toDouble(),
@@ -141,6 +146,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableContainer(
                     cardColor: kActiveCardColor,
+                    //weight
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -155,35 +161,81 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            FloatingActionButton(
-                              onPressed: () {},
-                              backgroundColor: Color(0xFF4C4F5E),
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
+                            //subtract weight
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
                             ),
+                            //space between buttons
                             SizedBox(
                               width: 10.0,
                             ),
-                            //TODO: Left off video at 11:56 mark
-                            FloatingActionButton(
-                              onPressed: () {},
-                              backgroundColor: Color(0xFF4C4F5E),
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
+                            //add weight
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
                             ),
                           ],
                         ),
+                        //addition, subtraction end
                       ],
                     ),
+                    //end weight
                   ),
                 ),
                 Expanded(
                   child: ReusableContainer(
                     cardColor: kActiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          kAgeText,
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            //subtract age
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            //space between buttons
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            //add age
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                        //addition, subtraction end
+                      ],
+                    ),
+                    //end age
                   ),
                 ),
               ],
