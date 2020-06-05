@@ -6,6 +6,7 @@ import 'Tile_UI.dart';
 import 'Bottom_Bar.dart';
 import 'constants.dart';
 import 'Round_Icon_Button.dart';
+import 'Results_page.dart';
 
 //instead of having items defined as integers, we are able to define them as strings with enum to simplify our code and avoid confusion
 enum Gender { male, female }
@@ -36,6 +37,7 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: <Widget>[
+                //MALE TILE
                 Expanded(
                   child: ReusableContainer(
                     //when pressed change the selected properties to those associated with Male
@@ -55,6 +57,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                 ),
+                //FEMALE TILE
                 Expanded(
                   child: ReusableContainer(
                     //when pressed change the selected properties to those associated with Female
@@ -77,7 +80,7 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          //Slider
+          //SLIDER
           Expanded(
             child: Row(
               children: <Widget>[
@@ -107,7 +110,7 @@ class _InputPageState extends State<InputPage> {
                             ),
                           ],
                         ),
-                        //slider UI
+                        //SLIDER UI
                         SliderTheme(
                           //allow modifications to only certain aspects of Slider property
                           data: SliderTheme.of(context).copyWith(
@@ -120,7 +123,7 @@ class _InputPageState extends State<InputPage> {
                             inactiveTrackColor: kInactiveTrackColor,
                             overlayColor: kOverlayColor,
                           ),
-                          //slider functionality
+                          //SLIDER FUNCTIONALITY
                           child: Slider(
                             value: height.toDouble(),
                             min: kMinHeight.toDouble(),
@@ -139,10 +142,11 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          //Weight and Age tiles
+          //WEIGHT AND AGE TILES
           Expanded(
             child: Row(
               children: <Widget>[
+                //WEIGHT TILE
                 Expanded(
                   child: ReusableContainer(
                     cardColor: kActiveCardColor,
@@ -191,6 +195,7 @@ class _InputPageState extends State<InputPage> {
                     //end weight
                   ),
                 ),
+                //AGE TILE
                 Expanded(
                   child: ReusableContainer(
                     cardColor: kActiveCardColor,
@@ -243,8 +248,20 @@ class _InputPageState extends State<InputPage> {
           ),
           Row(
             children: <Widget>[
+              //BOTTOM BAR
               Expanded(
-                child: BottomBar(),
+                child: BottomBar(
+                  //NAVIGATE TO RESULTS PAGE
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultsPage(),
+                      ),
+                    );
+                  },
+                  bottomBarLabel: kCalculation,
+                ),
               ),
             ],
           ),

@@ -18,6 +18,7 @@ const kHeightText = 'HEIGHT';
 const kHeightMeasurement = 'cm';
 const kWeightText = 'WEIGHT (KG)';
 const kAgeText = 'AGE';
+const kCalculation = 'CALCULATION';
 const kMaleIcon = FontAwesomeIcons.mars;
 const kFemaleIcon = FontAwesomeIcons.venus;
 const kBarColor = BoxDecoration(color: kSecondaryCTAColor);
