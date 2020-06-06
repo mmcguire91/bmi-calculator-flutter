@@ -19,6 +19,7 @@ const kHeightMeasurement = 'cm';
 const kWeightText = 'WEIGHT (KG)';
 const kAgeText = 'AGE';
 const kCalculation = 'CALCULATION';
+const kReCalculate = 'RE-CALCULATE';
 const kMaleIcon = FontAwesomeIcons.mars;
 const kFemaleIcon = FontAwesomeIcons.venus;
 const kBarColor = BoxDecoration(color: kSecondaryCTAColor);
@@ -42,4 +43,24 @@ const kNumberTextStyle = TextStyle(
 const kLargeButtonTextStyle = TextStyle(
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
+);
+
+const kResultTitleTextStyle = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBodyTypeTextStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 22.0,
+  color: Color(0xFF21c970),
+);
+
+const kBMIResultTextStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 100.0,
+);
+
+const kBMICTA = TextStyle(
+  fontSize: 22.0,
 );

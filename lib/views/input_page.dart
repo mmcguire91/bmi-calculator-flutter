@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'Reusable_Container.dart';
-import 'Tile_UI.dart';
-import 'Bottom_Bar.dart';
-import 'constants.dart';
-import 'Round_Icon_Button.dart';
+import '../components/Reusable_Container.dart';
+import '../components/Tile_UI.dart';
+import '../components/Bottom_Bar.dart';
+import '../constants.dart';
+import '../components/Round_Icon_Button.dart';
 import 'Results_page.dart';
 
 //instead of having items defined as integers, we are able to define them as strings with enum to simplify our code and avoid confusion
@@ -19,7 +19,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 180;
-  int weight = 130;
+  int weight = 60;
   int age = 30;
 
   @override
@@ -260,6 +260,7 @@ class _InputPageState extends State<InputPage> {
                       ),
                     );
                   },
+                  //END NAVIGATION LOGIC
                   bottomBarLabel: kCalculation,
                 ),
               ),
