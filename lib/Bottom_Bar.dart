@@ -10,10 +10,14 @@ class BottomBar extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        child: Text(
-          bottomBarLabel,
+        child: Center(
+          child: Text(
+            bottomBarLabel,
+            style: kLargeButtonTextStyle,
+          ),
         ),
         margin: EdgeInsets.only(top: 10),
+        padding: EdgeInsets.only(bottom: 10.0),
         width: double.infinity, //width equal to device size
         height: kBottomBarHeight,
         decoration: kBarColor,
