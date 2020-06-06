@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,6 +8,7 @@ import '../components/Bottom_Bar.dart';
 import '../constants.dart';
 import '../components/Round_Icon_Button.dart';
 import 'Results_page.dart';
+import 'package:bmi_calculator/BMI_Calculator_logic.dart';
 
 //instead of having items defined as integers, we are able to define them as strings with enum to simplify our code and avoid confusion
 enum Gender { male, female }
@@ -253,10 +255,15 @@ class _InputPageState extends State<InputPage> {
                 child: BottomBar(
                   //NAVIGATE TO RESULTS PAGE
                   onPressed: () {
+//                    BMICalculator calc =
+//                        BMICalculator(height: height, weight: weight);
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ResultsPage(),
+                        builder: (context) => ResultsPage(
+//                          bMIResult: calc.bMIResult,
+                            ),
                       ),
                     );
                   },

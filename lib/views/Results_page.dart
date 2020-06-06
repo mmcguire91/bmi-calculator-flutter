@@ -4,12 +4,16 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/Views/input_page.dart';
 import '../components/Bottom_Bar.dart';
 import '../components/Reusable_Container.dart';
+import 'package:bmi_calculator/BMI_Calculator_logic.dart';
 
 class ResultsPage extends StatelessWidget {
-  ResultsPage({this.bodyType, this.bMIResult, this.bodyTypeCTA});
+  ResultsPage(
+      {@required this.bodyType,
+      @required this.bMIResult,
+      @required this.bodyTypeCTA});
 
   String bodyType = 'Normal';
-  int bMIResult = 0;
+  String bMIResult = '0';
   String bodyTypeCTA = 'Keep it up!';
 
   @override
