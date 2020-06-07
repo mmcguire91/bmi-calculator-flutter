@@ -255,15 +255,17 @@ class _InputPageState extends State<InputPage> {
                 child: BottomBar(
                   //NAVIGATE TO RESULTS PAGE
                   onPressed: () {
-//                    BMICalculator calc =
-//                        BMICalculator(height: height, weight: weight);
+                    BMICalcLogic calc =
+                        BMICalcLogic(height: height, weight: weight);
 
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => ResultsPage(
-//                          bMIResult: calc.bMIResult,
-                            ),
+                          bMIResultNumber: calc.bMIResult(),
+                          bodyType: calc.bodyType(),
+                          bodyTypeCTA: calc.bodyTypeCTA(),
+                        ),
                       ),
                     );
                   },

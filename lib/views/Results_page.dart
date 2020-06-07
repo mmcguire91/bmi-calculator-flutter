@@ -8,13 +8,13 @@ import 'package:bmi_calculator/BMI_Calculator_logic.dart';
 
 class ResultsPage extends StatelessWidget {
   ResultsPage(
-      {@required this.bodyType,
-      @required this.bMIResult,
+      {@required this.bMIResultNumber,
+      @required this.bodyType,
       @required this.bodyTypeCTA});
 
-  String bodyType = 'Normal';
-  String bMIResult = '0';
-  String bodyTypeCTA = 'Keep it up!';
+  final String bMIResultNumber;
+  final String bodyType;
+  final String bodyTypeCTA;
 
   @override
   Widget build(BuildContext context) {
@@ -51,15 +51,15 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    bodyType.toString(),
+                    bodyType.toUpperCase(),
                     style: kBodyTypeTextStyle,
                   ),
                   Text(
-                    bMIResult.toString(),
+                    bMIResultNumber,
                     style: kBMIResultTextStyle,
                   ),
                   Text(
-                    bodyTypeCTA.toString(),
+                    bodyTypeCTA,
                     style: kBMICTA,
                     textAlign: TextAlign.center,
                   ),
